@@ -58,7 +58,7 @@ void loop(){
 	//		the sensor reading is smaller than minimum, it'll
 	//		return 0.
 	//
-	//Print values bigger than 10. Print 0 otherwise.
+	//Print values bigger than 20. Print 0 otherwise.
 	Serial.println(me.getValue(20));
   }while(true);
 }

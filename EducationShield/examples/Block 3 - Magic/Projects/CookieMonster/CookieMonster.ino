@@ -35,7 +35,7 @@
 CapacitiveSwitch sensor=CapacitiveSwitch(2,3);
 //Use Tinkerkit LED(or Tinkerkit LED matrix) here.
 //Deinfe the LED
-LED led=LED(9);
+int led = 9;
 
 void setup()
 {
@@ -44,21 +44,21 @@ void setup()
 
    //initialize components
    sensor.config(200);
-   led.begin();
-}
+   pinMode(led, OUTPUT);
+ }
 
 void loop(){
   //When someone attempts to open the
   //cookie jar, the sensor is activated
   if(sensor.pressed()){
     //Turn on the LED
-    led.on();
+    digitalWrite(9, HIGH);
     //Sends signal to processing, so a picture
     //will be captured
     Serial.print('p');
     //Wait 2 seconds before turning the LED off
     delay(2000);
-    led.off();
+    digitalWrite(9, LOW);
   }
 }
 

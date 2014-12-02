@@ -99,7 +99,7 @@ void setup(){
 }
 void loop(){
   //Reset the wait time
-  waitTime=1;
+  waitTime=2;
   
   /*
     Imagine when you throw a dice, it'll bounce around, 

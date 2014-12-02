@@ -21,7 +21,7 @@
 int ledPins[] = {9, 10, 11, 12, 13};
 int pinCount = 5;
 //This variable will let us keep track on which LED to turn on
-int LED;
+int LED = 0;
 VUMeter scoreBoard;
 
 //Configure the capacitive sensors

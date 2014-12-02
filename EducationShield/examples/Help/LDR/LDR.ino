@@ -44,16 +44,16 @@ void loop(){
   //Wait until the LDR gets cover-uncovered.
   Serial.println(sensor.pressed());
 
-  Serial.println("Please press...");
+  Serial.println("Please release...");
 
   //released(timeout)
   //	timeout: same as in pressed(timeout).
   //
   //Wait until the LDR gets uncover-covered.
-  Serial.println(sensor.pressed());
+  Serial.println(sensor.released());
 
 
-  While(true){
+  while(true){
   //getState()
   //	returns whether the sensor readings has
   //	passed the threshold. Returns true if the
