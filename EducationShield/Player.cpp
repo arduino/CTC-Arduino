@@ -23,7 +23,7 @@ void Player::play(char* name) {
   File myFile = SD.open(name);
   if (!myFile) {
     // if the file didn't open, print an error and stop
-    Serial.println("error opening test.wav");
+    Serial.println("error opening 0.wav");
     while (true);
   }
 
