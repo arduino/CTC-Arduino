@@ -10,7 +10,7 @@ Player::Player(){
 	//this->pressedValue=pressedValue;
 }
 void Player::begin(){
-	//Must be called in setup
+	//Must be called in 
 	initPlayer();
 	initSD();
 }

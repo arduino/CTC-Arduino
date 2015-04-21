@@ -208,6 +208,7 @@ class IRArray{
         IRArray(int IR1=A1, int IR2=A2, int IR3=A3);
         void begin();
         void test();
+		void setThreshold(int t);
         int readBinary();
         int readLine();
     private:
@@ -218,6 +219,7 @@ class IRArray{
         int translateBinary();
         int calculateVelocity(int s);
         int last_diff;
+		int threshold;
 
 };
 

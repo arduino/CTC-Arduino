@@ -23,9 +23,18 @@ int lastReading = 0;
 
 void setup(){
   pinMode(piezo, OUTPUT);
+  
+  //Use this line to set the threshold of the IR sensors. The default is 380
+  //Use test() to check the values of each sensor in loop()
+  //ir.setThreshold(350);
+  
+  Serial.begin(9600);
 }
 
 void loop(){
+  //Use this line to check the values from each IR sensor
+  //ir.test();
+  
   //Read the binary pattern and get a number from 0 to 7
   int reading = ir.readBinary(); 
   

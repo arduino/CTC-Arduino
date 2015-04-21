@@ -15,6 +15,7 @@ IRArray::IRArray(int IR1, int IR2, int IR3){
 	for(int i=0; i<3; i++){
       sensorVal[i]=0;
 	}
+	threshold = 380;
 }
 
 int IRArray::readBinary(){
@@ -25,8 +26,11 @@ int IRArray::readBinary(){
     bool check = true;
     while(check){
         for(int i=0; i<3; i++){
-            sensorVal[i] = constrain(map(analogRead(sensPins[i]), 350, 400, 1, 0), 0, 1);
-        }
+           // sensorVal[i] = constrain(map(analogRead(sensPins[i]), 350, 400, 1, 0), 0, 1);
+		   sensorVal[i] = constrain(analogRead(sensPins[i]), 60, 400);
+			if(sensorVal[i]<threshold) sensorVal[i]=1;
+			else sensorVal[i]=0;
+		}
 
         for(int i=0; i<3; i++){
             if(sensorVal[i]) toBinary[i]=1;
@@ -45,11 +49,9 @@ int IRArray::readLine(){
     int sum=0;
     for(int i=0; i<3; i++){
         int reading = constrain(analogRead(sensPins[i]), 60, 400);
-        //int reading = constrain(analogRead(sensPins[i]), low[i], high[i]);
 
         sensorVal[i]=map(reading,60,400,0,127);
         sum+=sensorVal[i];
-        //Serial.println(sum);
     }
     int vel = 0;
     if(sum>LINE_THRESSHOLD) vel = calculateVelocity(sum);
@@ -65,7 +67,6 @@ int IRArray::calculateVelocity(int s){
 
     int velocity = (diff * KP)/10 + (diff-last_diff)*KD;
      velocity = constrain(velocity, -100, 100);
-    //Serial.println(velocity);
     last_diff = diff;
 
     delay(INTEGRATION_TIME);
@@ -74,7 +75,7 @@ int IRArray::calculateVelocity(int s){
 }
 
 void IRArray::test(){
-    for(int i=0; i<3; i++) sensorVal[i] = constrain(analogRead(sensPins[i]), 60, 400);
+    for(int i=0; i<3; i++) sensorVal[i] = analogRead(sensPins[i]);
 
     Serial.print("IR1: ");
     Serial.print(sensorVal[0]);
@@ -82,4 +83,7 @@ void IRArray::test(){
     Serial.print(sensorVal[1]);
     Serial.print("  IR3: ");
     Serial.println(sensorVal[2]);
+}
+void IRArray::setThreshold(int t){
+	threshold=t;
 }
