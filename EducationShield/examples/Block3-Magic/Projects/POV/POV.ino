@@ -15,6 +15,10 @@
   (c) 2013 Arduino Verkstad
 */
 
+#include <CapacitiveSensor.h>
+#include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
 #include <EducationShield.h>
 /*
 An array of pin numbers to which LEDs are attached

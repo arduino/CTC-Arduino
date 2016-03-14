@@ -15,6 +15,9 @@
 
 #include <CapacitiveSensor.h>
 #include "pitches.h"
+#include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
 #include <EducationShield.h>
 
 //Capacitive switch connected between 2 and 3

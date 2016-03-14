@@ -7,15 +7,18 @@
   (c) 2013 Arduino Verkstad
 */
 
-#include <EducationShield.h>
+#include <CapacitiveSensor.h>
 #include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
+#include <EducationShield.h>
 
 Servo front, back;
 
 void setup(){
   //servos are initialized
-  front.attach(9);
-  back.attach(10);
+  front.attach(6);
+  back.attach(9);
 }
 
 void loop(){

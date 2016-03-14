@@ -1,16 +1,16 @@
-#ifndef EducationShield_h
-#define EducationShield_h
+#ifndef EducationShield_H
+#define EducationShield_H
 
 #if ARDUINO >= 100
 #include "Arduino.h"
 #else
 #include "WProgram.h"
 #endif
+#include <Servo.h>
+
 
 #include <CapacitiveSensor.h>
-#include <Servo.h>
-#include <utility/SdFat.h>
-#include <utility/SdFatUtil.h>
+
 #include <SD.h>
 
 
@@ -94,6 +94,8 @@ class LDR : public Button{
 		void config(int baseValue,int threashold);
 		virtual bool getState();
 		void test();
+		void calibrate(int t=5000);
+		void showConfig();
 
 	protected:
 		int base;
@@ -105,6 +107,7 @@ class TiltSwitch : public Button{
 	public:
 		TiltSwitch(int pin, bool pressedValue=LOW);
 };
+
 
 class CapacitiveSwitch : public Button{
 	public:
@@ -142,6 +145,8 @@ class PiezoKnockSensor{
 		int threshold;
 		long debounceTime;
 };
+
+
 class Player{
     public:
         Player();
@@ -154,7 +159,8 @@ class Player{
         void printDirectory(File dir, int numTabs);
         File root;
         char* name;
-    };
+};
+
 
 class Knob{
 	public:
@@ -166,6 +172,7 @@ class Knob{
 		int pin;
 		int levels;
 };
+
 
 class Joystick{
     public:
@@ -196,9 +203,8 @@ class Wheels{
         int toL, toR;
         int tl, tr;
     };
-
-#define KP 9
-#define KD 1
+#define KP 30
+#define KD 7
 #define LINE_THRESSHOLD 30
 #define ROBOT_SPEED 50 //In % [0..100]
 #define INTEGRATION_TIME 10

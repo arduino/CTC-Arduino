@@ -7,6 +7,7 @@
  (c) 2013 Arduino Verkstad
 */
 
+#include <CapacitiveSensor.h>
 #include <EducationShield.h>
 
 //Servo.h is necessary to be included here
@@ -16,7 +17,7 @@
 //  Declares the wheels.
 //  left: the digital pin where you connect the left wheel
 //  right: the digital pin where you connect the right wheel
-Wheels wheels=Wheels(10, 9);
+Wheels wheels=Wheels(5, 9);
 
 void setup(){
   //Initialize the servo wheels

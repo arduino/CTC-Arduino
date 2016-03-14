@@ -4,6 +4,8 @@
   
   (c) 2013 Arduino Verkstad
 */
+#include <CapacitiveSensor.h>
+#include <Servo.h>
 #include <EducationShield.h>
 
 //Declaring the button group

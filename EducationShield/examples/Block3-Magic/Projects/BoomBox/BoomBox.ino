@@ -12,6 +12,9 @@
   (c) 2013 Arduino Verkstad
 */
 
+#include <CapacitiveSensor.h>
+#include <Servo.h>
+#include <SPI.h>
 #include <EducationShield.h>
 
 //We need to include the SD library to be able to read from an SD card

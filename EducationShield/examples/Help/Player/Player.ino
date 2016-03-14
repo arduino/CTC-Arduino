@@ -9,6 +9,16 @@
   (c) 2014 Arduino Verkstad
 */
 
+/*
+
+
+  !!!!Warning not working without a new Player library
+
+
+*/
+#include <CapacitiveSensor.h>
+#include <Servo.h>
+#include <SPI.h>
 #include <EducationShield.h>
 
 //We need to include the SD library to be able to read from an SD card

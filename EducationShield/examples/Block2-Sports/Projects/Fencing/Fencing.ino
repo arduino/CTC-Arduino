@@ -8,6 +8,10 @@
   (c) 2013 Aduino Verkstad
 */
 
+#include <CapacitiveSensor.h>
+#include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
 #include <EducationShield.h>
 
 //Position of the leds in VU-meter is represented

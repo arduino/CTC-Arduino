@@ -12,8 +12,11 @@
   (c) 2013 Arduino Verkstad
 */
 
-#include <EducationShield.h>
+#include <CapacitiveSensor.h>
 #include <Servo.h>
+#include <SPI.h>
+#include <SD.h>
+#include <EducationShield.h>
 
 //The joystick uses two analog pins. Here pin A0 and A1
 Joystick joystick = Joystick(A1,A0);//Joystick(XanalogPin, YanalogPin)
@@ -28,8 +31,8 @@ int tiltJoystick = 0;
 
 void setup(){
   //servos are initialized
-  pan.attach(9);
-  tilt.attach(10);
+  pan.attach(6);
+  tilt.attach(9);
 }
 void loop(){
   panJoystick = joystick.getX(); //Get X value from joystick

@@ -15,6 +15,7 @@ void Player::begin(){
 	initSD();
 }
 
+
 void Player::play(char* name) {
     this->name=name;
     int count=0;
@@ -64,8 +65,14 @@ void Player::play(char* name) {
 }
 
 void Player::initPlayer() {
-    // set the PWM on pin 3 to 31250
+  // set the PWM on pin 3 to 31250
+  #ifdef ARDUINO_ARCH_AVR
     TCCR2B = TCCR2B & 0b11111000 | 0x01;
+  #else
+  #ifdef __ARDUINO_ARC__
+    g_APinDescription[3].ulPwmScale = 6;
+  #endif
+  #endif
 }
 
 void Player::initSD() {

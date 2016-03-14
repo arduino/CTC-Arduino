@@ -9,6 +9,9 @@
   (c) 2013 Arduino Verkstad
 */
 
+#include <CapacitiveSensor.h>
+#include <SPI.h>
+#include <SD.h>
 #include <EducationShield.h>
 
 //Servo.h is necessary to be included here
@@ -16,7 +19,7 @@
 
 //Declare the two wheels of robot, left wheel to D10 and
 // right wheel to D9
-Wheels wheels=Wheels(10, 9);
+Wheels wheels=Wheels(6, 9);
 
 //Declare the two LDR sensors
 LDR sensorLeft=LDR(A0);
